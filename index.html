@@ -101,7 +101,7 @@ nav a:hover{text-decoration:underline}
 .card h3{font-size:clamp(34px,4.6vw,64px);font-weight:800;line-height:.95;letter-spacing:-.035em}
 .card p{max-width:44ch}
 .card-visual{min-height:200px;border-radius:0;border:2px solid rgba(255,255,255,0.28);background:rgba(255,255,255,0.08);overflow:hidden;box-shadow:inset 0 0 0 2px rgba(255,255,255,0.08), 0 10px 20px rgba(0,0,0,0.12);}
-.card-visual svg{display:block;width:100%;height:100%;transform-origin:center;animation:agent-visual-float 4.5s ease-in-out infinite}
+.card-visual svg{display:block;width:100%;height:100%;transform-origin:center;filter:url(#ink-wobble) saturate(.9) contrast(1.08);animation:agent-visual-float 4.5s ease-in-out infinite}
 .card-visual:hover svg{animation-duration:2.2s}
 @keyframes agent-visual-float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-5px) scale(1.015)}}
 .agent-character{transform-box:fill-box;transform-origin:center;animation:character-hop 2.8s ease-in-out infinite}
@@ -168,6 +168,10 @@ nav a:hover{text-decoration:underline}
 </head>
 <body>
 <svg aria-hidden="true" width="0" height="0" style="position:absolute;overflow:hidden">
+  <filter id="ink-wobble" x="-5%" y="-5%" width="110%" height="110%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="8" result="paperNoise"/>
+    <feDisplacementMap in="SourceGraphic" in2="paperNoise" scale="1.4" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
   <symbol id="icon-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="icon-brain" viewBox="0 0 24 24"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 3 5h2V4Zm6 0a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-3 5h-2V4ZM9 9h6M9 14h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
   <symbol id="icon-plug" viewBox="0 0 24 24"><path d="M8 3v6M16 3v6M6 9h12v2a6 6 0 0 1-12 0V9Zm6 8v4M9 21h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
@@ -238,13 +242,6 @@ nav a:hover{text-decoration:underline}
             <path d="M208 84 L208 60" stroke="#2a0806" stroke-width="6" stroke-linecap="round"/>
             <path d="M236 126 L266 96" stroke="#ef2d21" stroke-width="10" stroke-linecap="round"/>
             <circle cx="272" cy="90" r="8" fill="#ef2d21"/>
-            <g class="agent-character" transform="translate(224 28)">
-              <path d="M22 0v8" stroke="#2a0806" stroke-width="3" stroke-linecap="round"/><circle cx="22" cy="0" r="4" fill="#f4b13f"/>
-              <rect x="2" y="8" width="40" height="30" rx="10" fill="#fff" stroke="#2a0806" stroke-width="3"/>
-              <circle class="character-eye" cx="14" cy="22" r="3" fill="#e42c1c"/><circle class="character-eye" cx="30" cy="22" r="3" fill="#e42c1c"/>
-              <path d="M15 30q7 5 14 0" fill="none" stroke="#2a0806" stroke-width="2" stroke-linecap="round"/>
-              <path d="M10 38v10M34 38v10M2 43h8M34 43h8" stroke="#2a0806" stroke-width="3" stroke-linecap="round"/>
-            </g>
           </svg>
         </div>
       </article>
@@ -267,13 +264,6 @@ nav a:hover{text-decoration:underline}
             <path d="M82 174 L112 174 L126 192 L98 192 Z" fill="#f4b13f"/>
             <path d="M178 154 Q220 126 258 154" stroke="#2a0806" stroke-width="6" fill="none" stroke-linecap="round"/>
             <circle cx="260" cy="154" r="8" fill="#fff" stroke="#2a0806" stroke-width="4"/>
-            <g class="agent-character" transform="translate(222 28)">
-              <path d="M22 0v8" stroke="#2a0806" stroke-width="3" stroke-linecap="round"/><circle cx="22" cy="0" r="4" fill="#e42c1c"/>
-              <rect x="2" y="8" width="40" height="30" rx="10" fill="#ffd36f" stroke="#2a0806" stroke-width="3"/>
-              <circle class="character-eye" cx="14" cy="22" r="3" fill="#2a0806"/><circle class="character-eye" cx="30" cy="22" r="3" fill="#2a0806"/>
-              <path d="M15 30q7 5 14 0" fill="none" stroke="#2a0806" stroke-width="2" stroke-linecap="round"/>
-              <path d="M10 38v10M34 38v10M2 43h8M34 43h8" stroke="#2a0806" stroke-width="3" stroke-linecap="round"/>
-            </g>
           </svg>
         </div>
       </article>
@@ -296,13 +286,6 @@ nav a:hover{text-decoration:underline}
             <circle cx="188" cy="112" r="10" fill="#2a0806"/>
             <path d="M228 90 L260 104 L228 118" fill="none" stroke="#2a0806" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
             <circle cx="270" cy="104" r="10" fill="#f4b13f"/>
-            <g class="agent-character" transform="translate(24 24)">
-              <path d="M22 0v8" stroke="#2a0806" stroke-width="3" stroke-linecap="round"/><circle cx="22" cy="0" r="4" fill="#f4b13f"/>
-              <rect x="2" y="8" width="40" height="30" rx="10" fill="#fff" stroke="#2a0806" stroke-width="3"/>
-              <circle class="character-eye" cx="14" cy="22" r="3" fill="#e42c1c"/><circle class="character-eye" cx="30" cy="22" r="3" fill="#e42c1c"/>
-              <path d="M15 30q7 5 14 0" fill="none" stroke="#2a0806" stroke-width="2" stroke-linecap="round"/>
-              <path d="M10 38v10M34 38v10M2 43h8M34 43h8" stroke="#2a0806" stroke-width="3" stroke-linecap="round"/>
-            </g>
           </svg>
         </div>
       </article>
@@ -328,13 +311,6 @@ nav a:hover{text-decoration:underline}
             <path d="M94 180 L130 180 L142 194 L108 194 Z" fill="#f4b13f"/>
             <path d="M180 180 L216 180 L228 194 L194 194 Z" fill="#f4b13f"/>
             <path d="M138 164 C152 144, 170 150, 182 164" stroke="#2a0806" stroke-width="7" fill="none" stroke-linecap="round"/>
-            <g class="agent-character" transform="translate(222 28)">
-              <path d="M22 0v8" stroke="#2a0806" stroke-width="3" stroke-linecap="round"/><circle cx="22" cy="0" r="4" fill="#e42c1c"/>
-              <rect x="2" y="8" width="40" height="30" rx="10" fill="#fff" stroke="#2a0806" stroke-width="3"/>
-              <circle class="character-eye" cx="14" cy="22" r="3" fill="#708ca4"/><circle class="character-eye" cx="30" cy="22" r="3" fill="#708ca4"/>
-              <path d="M15 30q7 5 14 0" fill="none" stroke="#2a0806" stroke-width="2" stroke-linecap="round"/>
-              <path d="M10 38v10M34 38v10M2 43h8M34 43h8" stroke="#2a0806" stroke-width="3" stroke-linecap="round"/>
-            </g>
           </svg>
         </div>
       </article>
@@ -356,13 +332,6 @@ nav a:hover{text-decoration:underline}
             <path d="M194 184 L184 202 L210 184" fill="#dce9f1" stroke="#2a0806" stroke-width="4" stroke-linejoin="round"/>
             <path d="M220 54 L228 70 L246 73 L233 86 L236 104 L220 95 L204 104 L207 86 L194 73 L212 70 Z" fill="#f4b13f" stroke="#2a0806" stroke-width="3" stroke-linejoin="round"/>
             <circle cx="265" cy="42" r="8" fill="#e42c1c"/>
-            <g class="agent-character" transform="translate(222 122)">
-              <path d="M22 0v8" stroke="#2a0806" stroke-width="3" stroke-linecap="round"/><circle cx="22" cy="0" r="4" fill="#e42c1c"/>
-              <rect x="2" y="8" width="40" height="30" rx="10" fill="#ffd36f" stroke="#2a0806" stroke-width="3"/>
-              <circle class="character-eye" cx="14" cy="22" r="3" fill="#2a0806"/><circle class="character-eye" cx="30" cy="22" r="3" fill="#2a0806"/>
-              <path d="M15 30q7 5 14 0" fill="none" stroke="#2a0806" stroke-width="2" stroke-linecap="round"/>
-              <path d="M10 38v10M34 38v10M2 43h8M34 43h8" stroke="#2a0806" stroke-width="3" stroke-linecap="round"/>
-            </g>
           </svg>
         </div>
       </article>
