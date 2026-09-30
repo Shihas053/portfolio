@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Muhammed Shihas – AI Agent Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+:root{
+  --red:#e42c1c; --deep:#86201c; --pink:#f49494; --slate:#708ca4; --stone:#c6b0af; --cream:#fff4ee;
+  --bg:#fff; --fg:#2a0806; --soft:#6b4a47; --line:#2a0806; --accent:#e42c1c;
+  --font:"Inter Tight","Helvetica Neue",Arial,system-ui,sans-serif;
+  --pad:clamp(20px,4vw,48px);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+
+.icon-btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:58px;
+  height:58px;
+  border:2px solid rgba(255,255,255,0.7);
+  border-radius:50%;
+  color:#fff;
+  text-decoration:none;
+  transition:transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  background:rgba(255,255,255,0.06);
+}
+
+.icon-btn:hover,
+.icon-btn:focus-visible {
+  transform:translateY(-2px);
+  background:rgba(255,255,255,0.12);
+  border-color:#fff;
+}
+
+.icon-btn i {
+  display:block;
+  font-size:22px;
+  line-height:1;
+  color:currentColor;
+}
+
+.contact-meta {
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+  margin-top:28px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#1c0908;--fg:#fff;--soft:#c6b0af;--line:#c6b0af;--accent:#f49494}
+}
+:root[data-theme="dark"]{--bg:#1c0908;--fg:#fff;--soft:#c6b0af;--line:#c6b0af;--accent:#f49494}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(60px + env(safe-area-inset-top,0px))}
+body{margin:0;background:linear-gradient(180deg, #fffaf7 0%, #fff 24%, #fff 100%);color:var(--fg);font:400 19px/1.4 var(--font);-webkit-font-smoothing:antialiased}
+h1,h2,h3,p,ul,dl,dd{margin:0}
+ul{padding:0;list-style:none}
+a{color:inherit;text-underline-offset:4px}
+a:focus-visible{outline:3px solid var(--fg);outline-offset:4px}
+.red a:focus-visible{outline-color:#fff}
+.wrap{max-width:1440px;margin:0 auto;padding:0 var(--pad)}
+.stmt{font-weight:800;line-height:.88;letter-spacing:-.045em}
+
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--red);color:#fff}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;height:60px;font-weight:500}
+nav ul{display:flex;gap:28px}
+nav a{text-decoration:none}
+nav a:hover{text-decoration:underline}
+@media (max-width:760px){nav .wrap{height:auto;min-height:60px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px;gap:8px 16px}nav ul{flex-wrap:wrap;gap:8px 16px}}
+
+.red{background:var(--red);color:#fff}
+.hero{padding-top:clamp(48px,10vh,120px);padding-bottom:clamp(40px,8vh,96px);min-height:calc(100svh - 60px);display:flex;flex-direction:column;justify-content:space-between;gap:56px}
+.hero h1{font-size:clamp(64px,15.4vw,230px)}
+.hero .foot{display:grid;grid-template-columns:1fr 1fr;gap:24px 48px;align-items:end;border-top:2px solid #fff;padding-top:20px}
+.hero .role{font-size:clamp(24px,3vw,40px);line-height:1.1;font-weight:800;letter-spacing:-.03em}
+.hero .sub{max-width:36ch;font-size:clamp(19px,1.8vw,24px);line-height:1.3}
+@media (max-width:760px){.hero .foot{grid-template-columns:1fr}}
+@media (max-width:480px){.hero h1{font-size:clamp(40px,12vw,58px);line-height:.95;overflow-wrap:anywhere}}
+
+.cloud{background:var(--deep);color:#fff;padding:22px 0}
+.cloud ul{display:flex;flex-wrap:wrap;gap:8px 40px;font-size:clamp(20px,2.4vw,32px);font-weight:800;letter-spacing:-.03em;line-height:1.15}
+
+.sec{padding-top:clamp(56px,8vw,112px);padding-bottom:clamp(56px,8vw,112px);border-bottom:1px solid var(--line)}
+.sec h2{font-size:clamp(48px,9vw,128px);margin-bottom:clamp(32px,5vw,64px)}
+@media (max-width:480px){.sec h2{font-size:42px}}
+@media (max-width:320px){.sec h2{font-size:38px}}
+.lede{font-size:clamp(28px,4.6vw,64px);line-height:1.02;font-weight:800;letter-spacing:-.035em;max-width:24ch}
+
+#agents .wrap:first-child h2 {
+  text-shadow: 4px 4px 0 rgba(228,44,28,0.12);
+}
+
+.agents{display:grid;grid-template-columns:1fr;gap:24px;align-items:stretch}
+.card{padding:clamp(24px,3.2vw,48px);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(220px,.9fr);gap:24px;align-items:stretch;min-height:260px;border-radius:0;box-shadow:0 12px 28px rgba(90, 22, 18, 0.12);overflow:hidden}
+.card-copy{display:flex;flex-direction:column;justify-content:space-between;gap:18px}
+.card h3{font-size:clamp(34px,4.6vw,64px);font-weight:800;line-height:.95;letter-spacing:-.035em}
+.card p{max-width:44ch}
+.card-visual{min-height:200px;border-radius:0;border:2px solid rgba(255,255,255,0.28);background:rgba(255,255,255,0.08);overflow:hidden;box-shadow:inset 0 0 0 2px rgba(255,255,255,0.08), 0 10px 20px rgba(0,0,0,0.12);}
+.card-visual svg{display:block;width:100%;height:100%}
+.card.a{background:linear-gradient(135deg, #ef2d21 0%, #c81d16 100%);color:#fff}
+.card.b{background:linear-gradient(135deg, #d3e4ef 0%, #8ea8bb 100%);color:#1a0a09}
+@media (max-width:860px){.agents{grid-template-columns:1fr}.card{grid-template-columns:1fr;min-height:0}.card-visual{min-height:220px}}
+
+.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:2px solid var(--line)}
+.nums div{padding:24px 20px 0 0}
+.nums div{min-width:0}
+.nums b{display:block;font-size:clamp(52px,8vw,112px);font-weight:800;line-height:.9;letter-spacing:-.05em;color:var(--accent)}
+.nums span{display:block;margin-top:12px;max-width:18ch;color:var(--soft)}
+@media (max-width:860px){.nums{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:32px}}
+@media (max-width:480px){.nums{grid-template-columns:minmax(0,1fr);row-gap:20px}}
+
+.role-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:24px 48px;padding:32px 0;border-top:2px solid var(--line)}
+.role-row>*{min-width:0}
+.role-row h3{font-size:clamp(30px,3.6vw,50px);font-weight:800;line-height:1;letter-spacing:-.035em}
+.role-row .meta{margin-top:10px;color:var(--soft)}
+.role-row li{padding:11px 0;border-top:1px solid var(--line)}
+.role-row li:first-child{border-top:0;padding-top:0}
+@media (max-width:760px){.role-row{grid-template-columns:1fr}}
+
+.rows>div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:8px 48px;padding:22px 0;border-top:1px solid var(--line)}
+.rows>div>*{min-width:0}
+.rows>div:last-child{border-bottom:1px solid var(--line)}
+.rows h3{font-size:24px;font-weight:800;line-height:1.15;letter-spacing:-.02em}
+.rows p{color:var(--soft);overflow-wrap:anywhere}
+.rows a{color:var(--fg);overflow-wrap:anywhere}
+.rows.tools p{color:var(--fg);font-size:21px}
+@media (max-width:760px){.rows>div{grid-template-columns:1fr}}
+
+.contact{padding-top:clamp(56px,8vw,112px);padding-bottom:clamp(40px,5vw,64px)}
+.contact h2{font-size:clamp(56px,13vw,196px);margin-bottom:32px}
+.contact .mail{display:inline-block;font-size:clamp(24px,4.4vw,60px);font-weight:800;letter-spacing:-.035em;line-height:1.05;overflow-wrap:anywhere}
+.contact dl{margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px 32px;border-top:2px solid #fff;padding-top:20px}
+.contact dt{opacity:.85}
+.contact dd{font-weight:500}
+@media (max-width:760px){.contact dl{grid-template-columns:1fr 1fr}}
+
+.chat-launcher{position:fixed;right:24px;bottom:24px;z-index:10;width:60px;height:60px;border:2px solid #fff;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;box-shadow:0 8px 24px rgba(42,8,6,.24);cursor:pointer;font:inherit}
+.chat-launcher i{font-size:24px}
+.chat-panel{position:fixed;right:24px;bottom:96px;z-index:10;width:min(360px,calc(100vw - 32px));height:min(460px,calc(100dvh - 120px));display:none;grid-template-rows:auto 1fr auto;background:#fff;color:#2a0806;border:2px solid #2a0806;border-radius:20px;overflow:hidden;box-shadow:0 14px 40px rgba(42,8,6,.24)}
+.chat-panel.is-open{display:grid}
+.chat-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 18px;background:var(--red);color:#fff}
+.chat-head h2{font-size:20px;line-height:1.1}
+.chat-close{border:0;background:transparent;color:inherit;font:inherit;font-size:24px;line-height:1;cursor:pointer}
+.chat-log{padding:16px;overflow-y:auto;display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.chat-message{max-width:88%;padding:10px 14px;background:#fff3ee;border-left:3px solid var(--red);border-radius:4px 16px 16px 16px;line-height:1.35;font-size:16px;overflow-wrap:anywhere}
+.chat-message.user{align-self:flex-end;background:#edf3f8;border-left:0;border-right:3px solid var(--slate);border-radius:16px 4px 16px 16px}
+.chat-form{display:flex;gap:8px;padding:12px;border-top:1px solid #d7c4c1}
+.chat-form input{min-width:0;flex:1;padding:10px;border:1px solid #9d817d;border-radius:18px;font:inherit;font-size:16px;color:#2a0806}
+.chat-form button{width:44px;border:0;border-radius:50%;background:var(--red);color:#fff;font-size:18px;cursor:pointer}
+.chat-launcher:focus-visible,.chat-close:focus-visible,.chat-form button:focus-visible,.chat-form input:focus-visible{outline:3px solid #708ca4;outline-offset:3px}
+@media (max-width:480px){.chat-launcher{right:16px;bottom:16px}.chat-panel{right:16px;bottom:88px}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <span>Muhammed Shihas</span>
+    <ul>
+      <li><a href="#agents">Agents</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#toolkit">Stack</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <header class="red">
+    <div class="wrap hero">
+      <h1 class="stmt">Muhammed Shihas</h1>
+      <div class="foot">
+        <p class="role">AI agent developer</p>
+        <p class="sub">I build agents that read, decide and act, on top of LLMs, RAG and APIs. Based in Deira, Dubai. Available immediately.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="cloud"><div class="wrap">
+    <ul aria-label="Core tools">
+      <li>LangGraph</li><li>LangChain</li><li>MCP</li><li>FastAPI</li><li>RAG</li><li>Docker</li><li>AWS</li><li>n8n</li><li>Make</li>
+    </ul>
+  </div></div>
+
+  <div class="sec"><div class="wrap">
+    <p class="lede">Published IEEE research. Two engineering internships in applied AI and data science.</p>
+  </div></div>
+
+  <div id="agents" style="border-bottom:1px solid var(--line)">
+    <div class="wrap" style="padding-top:clamp(56px,8vw,112px)"><h2 class="stmt" style="font-size:clamp(48px,9vw,128px);margin-bottom:clamp(32px,5vw,64px)">Agents I've built</h2></div>
+    <div class="agents">
+      <article class="card a">
+        <div class="card-copy">
+          <h3>Collision Analysis &amp; Alert System Agent</h3>
+          <p>Trigger-based AI automation that analyzes vehicle collisions from dashcam videos by integrating an LLM.</p>
+          <p>Scalable architecture covering video analysis, event history logging and emergency-contact notification workflows.</p>
+        </div>
+        <div class="card-visual" aria-label="Collision analysis workflow illustration">
+          <svg viewBox="0 0 300 220" role="img" aria-hidden="true">
+            <rect width="300" height="220" fill="#fff3ee"/>
+            <circle cx="86" cy="58" r="26" fill="#ffd36f"/>
+            <path d="M44 130 L124 130 L144 154 L52 154 Z" fill="#ffe2a8"/>
+            <path d="M60 110 L118 110 L150 152 L78 152 Z" fill="#d92d22"/>
+            <circle cx="72" cy="160" r="18" fill="#2a0806"/>
+            <circle cx="108" cy="160" r="18" fill="#2a0806"/>
+            <circle cx="72" cy="160" r="7" fill="#fff"/>
+            <circle cx="108" cy="160" r="7" fill="#fff"/>
+            <path d="M170 78 L250 78 L278 128 L206 128 Z" fill="#f4b13f"/>
+            <path d="M162 134 L215 134" stroke="#2a0806" stroke-width="8" stroke-linecap="round"/>
+            <path d="M172 142 L206 142" stroke="#2a0806" stroke-width="8" stroke-linecap="round"/>
+            <path d="M220 54 L250 54 L268 92 L201 92 Z" fill="#f7dca2"/>
+            <circle cx="229" cy="120" r="16" fill="#ef2d21"/>
+            <path d="M167 83 L163 57" stroke="#2a0806" stroke-width="6" stroke-linecap="round"/>
+            <path d="M183 83 L180 53" stroke="#2a0806" stroke-width="6" stroke-linecap="round"/>
+            <path d="M198 88 L196 58" stroke="#2a0806" stroke-width="6" stroke-linecap="round"/>
+            <path d="M208 84 L208 60" stroke="#2a0806" stroke-width="6" stroke-linecap="round"/>
+            <path d="M236 126 L266 96" stroke="#ef2d21" stroke-width="10" stroke-linecap="round"/>
+            <circle cx="272" cy="90" r="8" fill="#ef2d21"/>
+          </svg>
+        </div>
+      </article>
+      <article class="card b">
+        <div class="card-copy">
+          <h3>Agentic RAG Assistant</h3>
+          <p>Retrieval-Augmented Generation assistant for hospital knowledge retrieval, ingesting 100+ PDF and DOCX clinical documents.</p>
+          <p>Vector-based semantic search and contextual response generation using LLMs and a RAG architecture.</p>
+        </div>
+        <div class="card-visual" aria-label="RAG assistant knowledge assistant illustration">
+          <svg viewBox="0 0 300 220" role="img" aria-hidden="true">
+            <rect width="300" height="220" fill="#edf3f8"/>
+            <rect x="46" y="58" width="120" height="96" rx="12" fill="#fff" stroke="#2a0806" stroke-width="4"/>
+            <path d="M64 82 H106 M64 98 H118 M64 114 H110" stroke="#e42c1c" stroke-width="8" stroke-linecap="round"/>
+            <path d="M152 92 C168 78, 188 78, 198 92 C206 100, 206 116, 192 126 C178 136, 161 134, 151 120 C140 106, 142 100, 152 92Z" fill="#ffd36f"/>
+            <circle cx="173" cy="106" r="7" fill="#2a0806"/>
+            <path d="M167 120 Q181 132 194 120" stroke="#2a0806" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <path d="M222 90 L258 90 L266 144 L214 144 Z" fill="#e42c1c" opacity="0.9"/>
+            <path d="M205 154 L270 154" stroke="#2a0806" stroke-width="8" stroke-linecap="round"/>
+            <path d="M82 174 L112 174 L126 192 L98 192 Z" fill="#f4b13f"/>
+            <path d="M178 154 Q220 126 258 154" stroke="#2a0806" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <circle cx="260" cy="154" r="8" fill="#fff" stroke="#2a0806" stroke-width="4"/>
+          </svg>
+        </div>
+      </article>
+      <article class="card a">
+        <div class="card-copy">
+          <h3>AI-Assisted Receptionist</h3>
+          <p>Conversational front-desk assistant for handling appointment scheduling, visitor intake, FAQs and call routing.</p>
+          <p>Built to reduce manual receptionist workload while improving response speed, consistency and service availability.</p>
+        </div>
+        <div class="card-visual" aria-label="Receptionist support illustration">
+          <svg viewBox="0 0 300 220" role="img" aria-hidden="true">
+            <rect width="300" height="220" fill="#fff3ee"/>
+            <rect x="90" y="48" width="120" height="98" rx="18" fill="#ffe2a8"/>
+            <circle cx="150" cy="76" r="22" fill="#ffd36f"/>
+            <path d="M118 112 C120 90, 180 90, 182 112 L178 144 L122 144 Z" fill="#e42c1c"/>
+            <rect x="62" y="146" width="176" height="28" rx="12" fill="#f6d7c2"/>
+            <rect x="76" y="164" width="40" height="28" rx="10" fill="#fff" stroke="#2a0806" stroke-width="3"/>
+            <rect x="186" y="164" width="40" height="28" rx="10" fill="#fff" stroke="#2a0806" stroke-width="3"/>
+            <circle cx="112" cy="112" r="10" fill="#2a0806"/>
+            <circle cx="188" cy="112" r="10" fill="#2a0806"/>
+            <path d="M228 90 L260 104 L228 118" fill="none" stroke="#2a0806" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="270" cy="104" r="10" fill="#f4b13f"/>
+          </svg>
+        </div>
+      </article>
+      <article class="card b">
+        <div class="card-copy">
+          <h3>Automated Lead Follow-Up Agent</h3>
+          <p>Sales workflow automation that tracks inbound leads, qualifies prospects and sends timely follow-up messages across channels.</p>
+          <p>Designed to keep deals moving with personalized reminders, CRM updates and response-based next actions.</p>
+        </div>
+        <div class="card-visual" aria-label="Lead follow-up automation illustration">
+          <svg viewBox="0 0 300 220" role="img" aria-hidden="true">
+            <rect width="300" height="220" fill="#edf3f8"/>
+            <path d="M60 86 L126 86 L154 118 L88 118 Z" fill="#fff" stroke="#2a0806" stroke-width="4"/>
+            <path d="M176 90 L234 90 L262 118 L204 118 Z" fill="#ffe2a8" stroke="#2a0806" stroke-width="4"/>
+            <path d="M84 130 L122 130" stroke="#e42c1c" stroke-width="8" stroke-linecap="round"/>
+            <path d="M84 146 L142 146" stroke="#e42c1c" stroke-width="8" stroke-linecap="round"/>
+            <path d="M216 128 L246 128" stroke="#2a0806" stroke-width="8" stroke-linecap="round"/>
+            <path d="M216 146 L254 146" stroke="#2a0806" stroke-width="8" stroke-linecap="round"/>
+            <circle cx="116" cy="60" r="16" fill="#ffd36f"/>
+            <circle cx="246" cy="64" r="16" fill="#ffd36f"/>
+            <path d="M154 60 L180 60" stroke="#2a0806" stroke-width="8" stroke-linecap="round"/>
+            <path d="M186 60 L214 60" stroke="#2a0806" stroke-width="8" stroke-linecap="round"/>
+            <path d="M94 180 L130 180 L142 194 L108 194 Z" fill="#f4b13f"/>
+            <path d="M180 180 L216 180 L228 194 L194 194 Z" fill="#f4b13f"/>
+            <path d="M138 164 C152 144, 170 150, 182 164" stroke="#2a0806" stroke-width="7" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </article>
+      <article class="card a">
+        <div class="card-copy">
+          <h3>Social Media Post Generation Pipeline</h3>
+          <p>AI-assisted content pipeline that turns a topic or brief into structured social media post drafts.</p>
+          <p>Organizes generated copy into a review-ready format that can be adapted for different channels.</p>
+        </div>
+        <div class="card-visual" aria-label="Social media content drafting illustration">
+          <svg viewBox="0 0 300 220" role="img" aria-hidden="true">
+            <rect width="300" height="220" fill="#fff3ee"/>
+            <rect x="42" y="36" width="132" height="150" rx="10" fill="#fff" stroke="#2a0806" stroke-width="4"/>
+            <rect x="58" y="54" width="42" height="10" rx="5" fill="#ffd36f"/>
+            <path d="M60 84 H154 M60 101 H142 M60 118 H150" stroke="#e42c1c" stroke-width="7" stroke-linecap="round"/>
+            <path d="M60 139 H124" stroke="#2a0806" stroke-width="6" stroke-linecap="round" opacity=".55"/>
+            <rect x="142" y="112" width="116" height="72" rx="12" fill="#dce9f1" stroke="#2a0806" stroke-width="4"/>
+            <path d="M162 135 H236 M162 151 H222" stroke="#708ca4" stroke-width="7" stroke-linecap="round"/>
+            <path d="M194 184 L184 202 L210 184" fill="#dce9f1" stroke="#2a0806" stroke-width="4" stroke-linejoin="round"/>
+            <path d="M220 54 L228 70 L246 73 L233 86 L236 104 L220 95 L204 104 L207 86 L194 73 L212 70 Z" fill="#f4b13f" stroke="#2a0806" stroke-width="3" stroke-linejoin="round"/>
+            <circle cx="265" cy="42" r="8" fill="#e42c1c"/>
+          </svg>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="sec"><div class="wrap nums">
+    <div><b>500+</b><span>resumes processed by AI backend services</span></div>
+    <div><b>100+</b><span>concurrent user sessions supported</span></div>
+    <div><b>8+</b><span>sprint releases shipped</span></div>
+    <div><b>98.6%</b><span>accuracy on a lung cancer risk model</span></div>
+  </div></div>
+
+  <div class="sec" id="experience"><div class="wrap">
+    <h2 class="stmt">Experience</h2>
+    <article class="role-row">
+      <div><h3>AI Engineer Intern</h3><p class="meta">Wizzybox Pvt. Ltd<br>Jan 2026 – Jun 2026</p></div>
+      <ul>
+        <li>Built AI-powered backend services in Python and FastAPI for resume parsing, ATS scoring and interview-prep features, processing 500+ resumes.</li>
+        <li>Automated text analysis and evaluation logic, cutting manual resume-screening time by an estimated 30%.</li>
+        <li>Integrated AI services with REST APIs, supporting 100+ concurrent user sessions.</li>
+        <li>Optimized data-processing routines with NumPy and Pandas, improving API response efficiency by 20%.</li>
+        <li>Worked in an Agile team on Git/GitHub across sprint planning, debugging and testing, shipping 8+ sprint releases.</li>
+      </ul>
+    </article>
+    <article class="role-row">
+      <div><h3>Data Science Intern</h3><p class="meta">Zephyr<br>May 2025 – Jun 2025</p></div>
+      <ul>
+        <li>Built a lung cancer risk prediction model in Python with Pandas, NumPy and Scikit-learn, reaching 98.6% accuracy on 300+ records.</li>
+        <li>Ran exploratory data analysis with Matplotlib and Seaborn (correlation, distribution, box and pair plots) to surface key risk indicators.</li>
+        <li>Trained and tuned a Random Forest classifier, evaluated by accuracy, precision, recall and F1-score.</li>
+      </ul>
+    </article>
+  </div></div>
+
+  <div class="sec" id="toolkit"><div class="wrap">
+    <h2 class="stmt">Technical Stack</h2>
+    <div class="rows tools">
+      <div><h3>Agent development</h3><p>LangGraph, LangChain, MCP, OpenAI-compatible LLM workflows, agent orchestration, prompt design</p></div>
+      <div><h3>AI / ML</h3><p>LLMs, RAG, retrieval systems, prompt engineering, generative AI, TensorFlow, PyTorch, scikit-learn</p></div>
+      <div><h3>Backend &amp; APIs</h3><p>Python, FastAPI, REST APIs, JWT authentication, async services, API integration</p></div>
+      <div><h3>Data &amp; vector search</h3><p>SQL, MySQL, ChromaDB, vector databases, document processing, data pipelines</p></div>
+      <div><h3>Automation &amp; cloud</h3><p>Docker, Git/GitHub, AWS, n8n, Make, workflow automation</p></div>
+      <div><h3>Product &amp; productivity</h3><p>Power BI, HTML, CSS, CRM workflows, Microsoft 365, AI-assisted development tools</p></div>
+    </div>
+  </div></div>
+
+  <div class="sec"><div class="wrap">
+    <h2 class="stmt">Background</h2>
+    <div class="rows">
+      <div><h3>B.Tech, Artificial Intelligence &amp; Machine Learning</h3><p>Srinivas University Institute of Engineering &amp; Technology, Mangalore. CGPA 7.3 / 10.</p></div>
+      <div><h3>Higher Secondary Education</h3><p>EMS GHSS Higher Secondary School. Grade 85%.</p></div>
+      <div><h3>Published research paper</h3><p>International Conference on Emerging Synergy Science and Technology (IEEE). <a href="https://doi.org/10.1109/ICESST69086.2026.11582915">DOI 10.1109/ICESST69086.2026.11582915</a></p></div>
+      <div><h3>Smart India Hackathon</h3><p>Winner, internal level.</p></div>
+      <div><h3>Certifications</h3><p>Python &amp; Web Development, TensorFlow (IBM) and AWS Cloud Practitioner, all through Ethno Tech Academy.</p></div>
+      <div><h3>Languages</h3><p>English and Hindi: read, write, speak. Malayalam: read, write, speak. Arabic: read, write. Tamil: speak.</p></div>
+    </div>
+  </div></div>
+
+  <div class="red contact" id="contact"><div class="wrap">
+    <h2 class="stmt">Let's build an agent</h2>
+    <div class="contact-meta">
+      <a class="icon-btn" href="mailto:shihasek53@gmail.com" aria-label="Email">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+      <a class="icon-btn" href="tel:+971568746327" aria-label="Phone number">
+        <i class="fa-solid fa-phone"></i>
+      </a>
+      <a class="icon-btn" href="https://www.linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+      <a class="icon-btn" href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub profile">
+        <i class="fa-brands fa-github"></i>
+      </a>
+    </div>
+    <p style="margin-top:28px; font-size:clamp(15px,1.4vw,18px); opacity:0.9; letter-spacing:0.02em;">© 2026 Muhammed Shihas. All rights reserved.</p>
+  </div></div>
+</main>
+<button class="chat-launcher" type="button" aria-label="Open chat" aria-expanded="false" aria-controls="portfolio-chat"><i class="fa-solid fa-comments" aria-hidden="true"></i></button>
+<section class="chat-panel" id="portfolio-chat" aria-label="Portfolio chat" aria-hidden="true">
+  <header class="chat-head"><h2>Ask about my work</h2><button class="chat-close" type="button" aria-label="Close chat">×</button></header>
+  <div class="chat-log" aria-live="polite" aria-relevant="additions">
+    <p class="chat-message">Hi! Ask me about my AI projects, skills, experience, or education.</p>
+  </div>
+  <form class="chat-form"><input type="text" name="message" placeholder="Type your question..." aria-label="Your message" autocomplete="off" required><button type="submit" aria-label="Send message"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button></form>
+</section>
+<script>
+const chatLauncher = document.querySelector('.chat-launcher');
+const chatPanel = document.querySelector('.chat-panel');
+const chatClose = document.querySelector('.chat-close');
+const chatForm = document.querySelector('.chat-form');
+const chatInput = chatForm.querySelector('input');
+const chatLog = document.querySelector('.chat-log');
+
+function setChatOpen(isOpen) {
+  chatPanel.classList.toggle('is-open', isOpen);
+  chatPanel.setAttribute('aria-hidden', String(!isOpen));
+  chatLauncher.setAttribute('aria-expanded', String(isOpen));
+  if (isOpen) chatInput.focus();
+  else chatLauncher.focus();
+}
+
+function getPortfolioReply(question) {
+  const text = question.toLowerCase();
+  if (/project|agent|built|rag|reception|lead|collision|social|post|content/.test(text)) return 'Featured work includes a collision analysis and alert agent, an agentic RAG assistant for hospital documents, an AI-assisted receptionist, an automated lead follow-up agent, and a social media post generation pipeline. See the Agents section for details.';
+  if (/skill|stack|technology|tool|language|python|langchain|langgraph/.test(text)) return 'The stack includes Python, LangGraph, LangChain, MCP, FastAPI, LLMs, RAG, ChromaDB, Docker, AWS, n8n, and Make. See the Technical Stack section for more.';
+  if (/experience|intern|work|resume/.test(text)) return 'Muhammed has experience as an AI Engineer Intern at Wizzybox and a Data Science Intern at Zephyr. The Experience section has the role details.';
+  if (/education|degree|university|study|research|certif/.test(text)) return 'Muhammed holds a B.Tech in Artificial Intelligence and Machine Learning from Srinivas University Institute of Engineering & Technology, and has published IEEE research. More details are in Background.';
+  if (/contact|email|phone|hire|available/.test(text)) return 'Muhammed is available immediately. Use the email or phone icons in the contact section to get in touch.';
+  return 'I can help with questions about projects, skills, experience, education, or contact details. What would you like to know?';
+}
+
+function addChatMessage(text, sender) {
+  const message = document.createElement('p');
+  message.className = `chat-message${sender === 'user' ? ' user' : ''}`;
+  message.textContent = text;
+  chatLog.append(message);
+  chatLog.scrollTop = chatLog.scrollHeight;
+}
+
+chatLauncher.addEventListener('click', () => setChatOpen(true));
+chatClose.addEventListener('click', () => setChatOpen(false));
+chatForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const question = chatInput.value.trim();
+  if (!question) return;
+  addChatMessage(question, 'user');
+  addChatMessage(getPortfolioReply(question), 'assistant');
+  chatForm.reset();
+  chatInput.focus();
+});
+</script>
+</body>
+</html>
