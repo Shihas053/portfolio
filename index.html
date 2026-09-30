@@ -40,10 +40,10 @@
   border-color:#fff;
 }
 
-.icon-btn i {
+.icon-btn svg {
   display:block;
-  font-size:22px;
-  line-height:1;
+  width:22px;
+  height:22px;
   color:currentColor;
 }
 
@@ -55,10 +55,6 @@
   flex-wrap:wrap;
   margin-top:28px;
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){--bg:#1c0908;--fg:#fff;--soft:#c6b0af;--line:#c6b0af;--accent:#f49494}
-}
-:root[data-theme="dark"]{--bg:#1c0908;--fg:#fff;--soft:#c6b0af;--line:#c6b0af;--accent:#f49494}
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-behavior:smooth;scroll-padding-top:calc(60px + env(safe-area-inset-top,0px))}
 body{margin:0;background:linear-gradient(180deg, #fffaf7 0%, #fff 24%, #fff 100%);color:var(--fg);font:400 19px/1.4 var(--font);-webkit-font-smoothing:antialiased}
@@ -144,7 +140,7 @@ nav a:hover{text-decoration:underline}
 @media (max-width:760px){.contact dl{grid-template-columns:1fr 1fr}}
 
 .chat-launcher{position:fixed;right:24px;bottom:24px;z-index:10;width:60px;height:60px;border:2px solid #fff;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;box-shadow:0 8px 24px rgba(42,8,6,.24);cursor:pointer;font:inherit}
-.chat-launcher i{font-size:24px}
+.chat-launcher svg{width:24px;height:24px}
 .chat-panel{position:fixed;right:24px;bottom:96px;z-index:10;width:min(360px,calc(100vw - 32px));height:min(460px,calc(100dvh - 120px));display:none;grid-template-rows:auto 1fr auto;background:#fff;color:#2a0806;border:2px solid #2a0806;border-radius:20px;overflow:hidden;box-shadow:0 14px 40px rgba(42,8,6,.24)}
 .chat-panel.is-open{display:grid}
 .chat-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 18px;background:var(--red);color:#fff}
@@ -155,7 +151,8 @@ nav a:hover{text-decoration:underline}
 .chat-message.user{align-self:flex-end;background:#edf3f8;border-left:0;border-right:3px solid var(--slate);border-radius:16px 4px 16px 16px}
 .chat-form{display:flex;gap:8px;padding:12px;border-top:1px solid #d7c4c1}
 .chat-form input{min-width:0;flex:1;padding:10px;border:1px solid #9d817d;border-radius:18px;font:inherit;font-size:16px;color:#2a0806}
-.chat-form button{width:44px;border:0;border-radius:50%;background:var(--red);color:#fff;font-size:18px;cursor:pointer}
+.chat-form button{width:44px;border:0;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;cursor:pointer}
+.chat-form button svg{width:18px;height:18px}
 .chat-launcher:focus-visible,.chat-close:focus-visible,.chat-form button:focus-visible,.chat-form input:focus-visible{outline:3px solid #708ca4;outline-offset:3px}
 @media (max-width:480px){.chat-launcher{right:16px;bottom:16px}.chat-panel{right:16px;bottom:88px}}
 </style>
@@ -377,28 +374,28 @@ nav a:hover{text-decoration:underline}
     <h2 class="stmt">Let's build an agent</h2>
     <div class="contact-meta">
       <a class="icon-btn" href="mailto:shihasek53@gmail.com" aria-label="Email">
-        <i class="fa-solid fa-envelope"></i>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m4 7 8 6 8-6"></path></svg>
       </a>
       <a class="icon-btn" href="tel:+971568746327" aria-label="Phone number">
-        <i class="fa-solid fa-phone"></i>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 4h3l2 5-2 2c1 2 3 4 5 5l2-2 5 2v3c0 1-1 2-2 2C11 21 3 13 3 5c0-1 1-1 2-1h2Z"></path></svg>
       </a>
       <a class="icon-btn" href="https://www.linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">
-        <i class="fa-brands fa-linkedin-in"></i>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.1 7.2A2.1 2.1 0 1 1 5.1 3a2.1 2.1 0 0 1 0 4.2ZM3.3 21h3.6V9.1H3.3V21Zm5.8-11.9h3.5v1.6h.1c.5-.9 1.7-1.9 3.5-1.9 3.7 0 4.4 2.4 4.4 5.6V21H17v-5.8c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1V21H9.1V9.1Z"></path></svg>
       </a>
       <a class="icon-btn" href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub profile">
-        <i class="fa-brands fa-github"></i>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 0 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.9.1-.7.4-1.1.6-1.4-2.2-.3-4.5-1.1-4.5-4.9 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.8 9.8 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.8-2.3 4.6-4.5 4.9.4.3.7.9.7 1.8V21c0 .3.2.6.7.5A10 10 0 0 0 12 2Z"></path></svg>
       </a>
     </div>
     <p style="margin-top:28px; font-size:clamp(15px,1.4vw,18px); opacity:0.9; letter-spacing:0.02em;">© 2026 Muhammed Shihas. All rights reserved.</p>
   </div></div>
 </main>
-<button class="chat-launcher" type="button" aria-label="Open chat" aria-expanded="false" aria-controls="portfolio-chat"><i class="fa-solid fa-comments" aria-hidden="true"></i></button>
+<button class="chat-launcher" type="button" aria-label="Open chat" aria-expanded="false" aria-controls="portfolio-chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5Z"></path><path d="M8 9h8M8 12h5"></path></svg></button>
 <section class="chat-panel" id="portfolio-chat" aria-label="Portfolio chat" aria-hidden="true">
   <header class="chat-head"><h2>Ask about my work</h2><button class="chat-close" type="button" aria-label="Close chat">×</button></header>
   <div class="chat-log" aria-live="polite" aria-relevant="additions">
     <p class="chat-message">Hi! Ask me about my AI projects, skills, experience, or education.</p>
   </div>
-  <form class="chat-form"><input type="text" name="message" placeholder="Type your question..." aria-label="Your message" autocomplete="off" required><button type="submit" aria-label="Send message"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button></form>
+  <form class="chat-form"><input type="text" name="message" placeholder="Type your question..." aria-label="Your message" autocomplete="off" required><button type="submit" aria-label="Send message"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 14-7-4 14-3-6-7-1Z"></path><path d="m12 13 7-8"></path></svg></button></form>
 </section>
 <script>
 const chatLauncher = document.querySelector('.chat-launcher');
