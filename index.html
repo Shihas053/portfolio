@@ -128,7 +128,9 @@ nav a:hover{text-decoration:underline}
 .rows h3{font-size:24px;font-weight:800;line-height:1.15;letter-spacing:-.02em}
 .rows p{color:var(--soft);overflow-wrap:anywhere}
 .rows a{color:var(--fg);overflow-wrap:anywhere}
-.rows.tools p{color:var(--fg);font-size:21px}
+.rows.tools .tool-list{display:flex;flex-wrap:wrap;gap:8px}
+.rows.tools .tool-chip{display:inline-flex;align-items:center;gap:9px;max-width:100%;padding:8px 11px;border:1px solid rgba(42,8,6,.24);border-radius:4px;background:#fffaf7;color:var(--fg);font-size:17px;line-height:1.2;overflow-wrap:anywhere}
+.rows.tools .tool-chip svg{width:17px;height:17px;flex:none;color:var(--red)}
 @media (max-width:760px){.rows>div{grid-template-columns:1fr}}
 
 .contact{padding-top:clamp(56px,8vw,112px);padding-bottom:clamp(40px,5vw,64px)}
@@ -158,6 +160,14 @@ nav a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
+<svg aria-hidden="true" width="0" height="0" style="position:absolute;overflow:hidden">
+  <symbol id="icon-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-brain" viewBox="0 0 24 24"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 3 5h2V4Zm6 0a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-3 5h-2V4ZM9 9h6M9 14h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="icon-plug" viewBox="0 0 24 24"><path d="M8 3v6M16 3v6M6 9h12v2a6 6 0 0 1-12 0V9Zm6 8v4M9 21h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="icon-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 5v7c0 2 3.6 3 8 3s8-1 8-3V5M4 12v7c0 2 3.6 3 8 3s8-1 8-3v-7" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="icon-cloud" viewBox="0 0 24 24"><path d="M7 18a5 5 0 1 1 1-9.9A6 6 0 0 1 19 11a3.5 3.5 0 0 1-1 7H7Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="icon-chart" viewBox="0 0 24 24"><path d="M4 19V5M4 19h17M8 16l3-4 3 2 5-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
 <nav>
   <div class="wrap">
     <span>Muhammed Shihas</span>
@@ -183,7 +193,7 @@ nav a:hover{text-decoration:underline}
 
   <div class="cloud"><div class="wrap">
     <ul aria-label="Core tools">
-      <li>LangGraph</li><li>LangChain</li><li>MCP</li><li>FastAPI</li><li>RAG</li><li>Docker</li><li>AWS</li><li>n8n</li><li>Make</li>
+      <li>LangGraph</li><li>LangChain</li><li>MCP</li><li>FastAPI</li><li>RAG</li><li>Pinecone</li><li>Docker</li><li>AWS</li><li>n8n</li><li>Make</li>
     </ul>
   </div></div>
 
@@ -349,12 +359,57 @@ nav a:hover{text-decoration:underline}
   <div class="sec" id="toolkit"><div class="wrap">
     <h2 class="stmt">Technical Stack</h2>
     <div class="rows tools">
-      <div><h3>Agent development</h3><p>LangGraph, LangChain, MCP, OpenAI-compatible LLM workflows, agent orchestration, prompt design</p></div>
-      <div><h3>AI / ML</h3><p>LLMs, RAG, retrieval systems, prompt engineering, generative AI, TensorFlow, PyTorch, scikit-learn</p></div>
-      <div><h3>Backend &amp; APIs</h3><p>Python, FastAPI, REST APIs, JWT authentication, async services, API integration</p></div>
-      <div><h3>Data &amp; vector search</h3><p>SQL, MySQL, ChromaDB, vector databases, document processing, data pipelines</p></div>
-      <div><h3>Automation &amp; cloud</h3><p>Docker, Git/GitHub, AWS, n8n, Make, workflow automation</p></div>
-      <div><h3>Product &amp; productivity</h3><p>Power BI, HTML, CSS, CRM workflows, Microsoft 365, AI-assisted development tools</p></div>
+      <div><h3>Agent development</h3><div class="tool-list">
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-code"></use></svg>LangGraph</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-plug"></use></svg>LangChain</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-plug"></use></svg>MCP</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-brain"></use></svg>OpenAI-compatible LLM workflows</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-code"></use></svg>Agent orchestration</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-code"></use></svg>Prompt design</span>
+      </div></div>
+      <div><h3>AI / ML</h3><div class="tool-list">
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-brain"></use></svg>LLMs</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-database"></use></svg>RAG</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-database"></use></svg>Retrieval systems</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-code"></use></svg>Prompt engineering</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-brain"></use></svg>Generative AI</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-chart"></use></svg>TensorFlow</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-brain"></use></svg>PyTorch</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-chart"></use></svg>scikit-learn</span>
+      </div></div>
+      <div><h3>Backend &amp; APIs</h3><div class="tool-list">
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-code"></use></svg>Python</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-plug"></use></svg>FastAPI</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-plug"></use></svg>REST APIs</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-code"></use></svg>JWT authentication</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-code"></use></svg>Async services</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-plug"></use></svg>API integration</span>
+      </div></div>
+      <div><h3>Data &amp; vector search</h3><div class="tool-list">
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-database"></use></svg>SQL</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-database"></use></svg>MySQL</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-database"></use></svg>ChromaDB</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-database"></use></svg>Pinecone</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-database"></use></svg>Vector databases</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-code"></use></svg>Document processing</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-chart"></use></svg>Data pipelines</span>
+      </div></div>
+      <div><h3>Automation &amp; cloud</h3><div class="tool-list">
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-code"></use></svg>Docker</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-code"></use></svg>Git/GitHub</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-cloud"></use></svg>AWS</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-code"></use></svg>n8n</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-code"></use></svg>Make</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-cloud"></use></svg>Workflow automation</span>
+      </div></div>
+      <div><h3>Product &amp; productivity</h3><div class="tool-list">
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-chart"></use></svg>Power BI</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-code"></use></svg>HTML</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-code"></use></svg>CSS</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-code"></use></svg>CRM workflows</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-cloud"></use></svg>Microsoft 365</span>
+        <span class="tool-chip"><svg aria-hidden="true"><use href="#icon-brain"></use></svg>AI-assisted development tools</span>
+      </div></div>
     </div>
   </div></div>
 
