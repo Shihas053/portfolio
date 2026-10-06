@@ -1988,7 +1988,7 @@
 <body>
     <!-- Fixed Logo -->
     <header class="fixed-header" id="fixed-header">
-        <span class="logo">SHIHAS</span>
+        <a class="logo" href="#profile" aria-label="Go to profile">SHIHAS</a>
     </header>
 
     <!-- Side Dot Navigation -->
@@ -2864,6 +2864,11 @@
                     e.preventDefault();
                     navigateToSection(link);
                 });
+            });
+
+            document.querySelector('.logo')?.addEventListener('click', (e) => {
+                e.preventDefault();
+                navigateToSection(e.currentTarget);
             });
 
             tocLinks.forEach(link => {
