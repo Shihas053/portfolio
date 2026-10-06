@@ -2691,6 +2691,16 @@
 
         document.addEventListener('DOMContentLoaded', () => {
 
+            const returnToCover = () => {
+                document.getElementById('cover')?.scrollIntoView({ behavior: 'auto' });
+            };
+
+            history.pushState({ portfolioEntry: true }, '', location.href);
+            window.addEventListener('popstate', returnToCover);
+            window.addEventListener('pageshow', (event) => {
+                if (event.persisted) returnToCover();
+            });
+
             // ── PAGE LOADER ──────────────────────────────
             const loader = document.createElement('div');
             loader.className = 'page-loader';
